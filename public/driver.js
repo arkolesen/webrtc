@@ -7,7 +7,7 @@ var iceConfig = null;
 
 var socket = null;
 function connectWebsocket() {
-  socket = new WebSocket("ws://localhost:3333" );
+  socket = new WebSocket("wss://" + window.location.hostname);
   socket.onopen = function(event) { log("Connected to server"); };
 
   socket.onclose = function() {
@@ -62,7 +62,7 @@ var iceConfigTextarea = document.getElementById("iceConfig");
 if (window.location.host == "d3-webrtc-example.glitch.me") {
   urlBox.value = "Do step 1 first!";
 } else {
-  urlBox.value = "https://46.81.176.77:8000/robot";
+  urlBox.value = "https://"+ window.location.host +"/robot";
 }
 
 window.listWebcams = () => {
