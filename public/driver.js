@@ -7,7 +7,7 @@ var iceConfig = null;
 
 var socket = null;
 function connectWebsocket() {
-  socket = new WebSocket("wss://" + window.location.hostname + 3333);
+  socket = new WebSocket("wss://" + window.location.hostname + ':3333');
   socket.onopen = function(event) { log("Connected to server"); };
 
   socket.onclose = function() {
