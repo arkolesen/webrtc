@@ -7,7 +7,7 @@ function log(text) {
 
 var socket = null;
 function connectWebsocket() {
-  socket = new WebSocket("ws://171e16bb.ngrok.io");
+  socket = new WebSocket("wss://" + window.location.hostname);
   socket.onopen = function(event) { log("Connected to server"); };
 
   socket.onclose = function() {
@@ -21,7 +21,7 @@ function connectWebsocket() {
     var signal = null;
     try {
       signal = JSON.parse(event.data);
-      log(JSON.stringify(signal));
+      log(signal);
     } catch (e) {
       log(event.data);
     }
